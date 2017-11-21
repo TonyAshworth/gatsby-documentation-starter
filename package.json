@@ -31,6 +31,7 @@
     "react-render-html": "^0.5.2"
   },
   "devDependencies": {
+    "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.3",
     "gatsby": "^1.9.102",
     "gatsby-image": "^1.0.24",
     "gatsby-link": "^1.6.22",
