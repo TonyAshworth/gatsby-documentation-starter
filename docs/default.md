@@ -1,5 +1,5 @@
 ---
-title: stuff
+title: Some Stuff
 titleOrder: 1
 ---
 
