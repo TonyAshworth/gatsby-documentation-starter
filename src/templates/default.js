@@ -10,6 +10,7 @@ export default ({
                         markdownRemark,
                         site,
                     },
+                    searchIndex,
                 }) => (
     <div className={'master-detail-container'}>
         <Helmet
@@ -19,6 +20,7 @@ export default ({
             <VerticalNavigationList
                 currentSlug={markdownRemark.fields.slug}
                 edges={allMarkdownRemark.edges}
+                searchIndex={searchIndex}
             />
         </div>
         <div className={'detail-pane'}>
@@ -46,6 +48,7 @@ DefaultTemplateQuery($slug: String!) {
     allMarkdownRemark {
         edges {
             node {
+                id
                 fields {
                     slug
                 }

@@ -25,6 +25,7 @@
     "url": "git+https://github.com/TonyAshworth/gatsby-documentation-starter.git"
   },
   "dependencies": {
+    "elasticlunr": "^0.9.5",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-helmet": "^5.2.0",

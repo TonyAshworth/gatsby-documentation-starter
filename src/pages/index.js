@@ -4,10 +4,11 @@ import React from 'react';
 import VerticalNavigationList from '../components/VerticalNavigationList';
 
 const App = ({
-    data: {
-        allMarkdownRemark,
-        site,
-    }
+                 data: {
+                     allMarkdownRemark,
+                     site,
+                 },
+                 searchIndex,
              }) => {
     console.log("allMarkdownRemark", allMarkdownRemark);
     return (
@@ -19,6 +20,7 @@ const App = ({
                 <VerticalNavigationList
                     currentSlug={'/'}
                     edges={allMarkdownRemark.edges}
+                    searchIndex={searchIndex}
                 />
             </div>
             <div className={'detail-pane'}>
@@ -41,6 +43,7 @@ IndexPageQuery {
     allMarkdownRemark {
         edges {
             node {
+                id
                 fields {
                     slug
                 }

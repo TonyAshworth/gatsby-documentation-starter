@@ -28,25 +28,33 @@ const Header = ({title, githubLink}) => {
     );
 };
 
-const TemplateWrapper = ({
-                             children,
-                             data: {
-                                 site,
-                             },
-                         }) => (
-    <div>
-        <Helmet
-            title={site.siteMetadata.title}
-            meta={[
-                {name: 'description', content: site.siteMetadata.description},
-            ]}
-        />
-        <Header title={site.siteMetadata.title} githubLink={site.siteMetadata.githubUrl}/>
+const TemplateWrapper = (props) => {
+    const {
+        children,
+        data: {
+            site,
+            siteSearchIndex,
+        },
+    } = props;
+
+    return (
         <div>
-            {children()}
+            <Helmet
+                title={site.siteMetadata.title}
+                meta={[
+                    {name: 'description', content: site.siteMetadata.description},
+                ]}
+            />
+            <Header title={site.siteMetadata.title} githubLink={site.siteMetadata.githubUrl}/>
+            <div>
+                {children({
+                    ...props,
+                    searchIndex: siteSearchIndex.index,
+                })}
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 TemplateWrapper.propTypes = {
     children: PropTypes.func,
@@ -61,5 +69,8 @@ TemplateQuery {
             title
             githubUrl
         }
+    }
+    siteSearchIndex {
+      index
     }
 }`;
